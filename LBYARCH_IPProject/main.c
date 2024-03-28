@@ -27,17 +27,11 @@ void print_vec(float vec[], unsigned int size) {
 	unsigned int i;
 	if (size > 10)
 		size = 10;
-	printf("first %dd values\n", size);
+	printf("first %d values\n", size);
 	for (i = 0; i < size; i++) {
 		printf("%.2f ", vec[i]);
 	}
 	printf("\n");
-}
-
-void saxpy_c(float a, float* x, float* y, float* z, unsigned int currSize) {
-	saxpy(a, x, y, z, currSize);
-	printf("\nz\n");
-	print_vec(z, currSize);
 }
 
 int main() {
@@ -55,9 +49,11 @@ int main() {
 	unsigned int i;
 	for (i = 0; i < 30; i++) {
 		clock_t start = clock();
-		saxpy_c(a, x, y, z, currSize);
+		saxpy(a, x, y, z, currSize);
 		clock_t end = clock();
 		timesC += (double)(end - start) / CLOCKS_PER_SEC;
+		printf("\nz\n");
+		print_vec(z, currSize);
 	}
 	timesC /= 30.0;
 	timesC *= 1000;

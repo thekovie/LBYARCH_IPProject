@@ -36,10 +36,6 @@ void print_vec(float vec[], unsigned int size) {
 
 void saxpy_c(float a, float* x, float* y, float* z, unsigned int currSize) {
 	saxpy(a, x, y, z, currSize);
-	printf("x\n");
-	print_vec(x, currSize);
-	printf("\ny\n");
-	print_vec(y, currSize);
 	printf("\nz\n");
 	print_vec(z, currSize);
 }
@@ -66,5 +62,7 @@ int main() {
 	timesC /= 30.0;
 	timesC *= 1000;
 	printf("average time for C: %fms", timesC);
+
+
 	return 0;
 }

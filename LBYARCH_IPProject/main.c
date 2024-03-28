@@ -63,6 +63,8 @@ int main() {
 	timesC *= 1000;
 	printf("average time for C: %fms", timesC);
 
-
+	free(x);
+	free(y);
+	free(z);
 	return 0;
 }

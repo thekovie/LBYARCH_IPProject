@@ -7,27 +7,27 @@
 #define size2 1 << 24
 #define size3 1 << 30
 
-extern void saxpy_asm(float a, float *x, float *y, float *z, unsigned int size);
+extern void saxpy_asm(float a, float *x, float *y, float *z, size_t size);
 
-void fill_vector(float vec[], unsigned int size) {
-	unsigned int i;
+void fill_vector(float vec[], size_t size) {
+	size_t i;
 	for (i = 0; i < size; i++) {
 		vec[i] = (rand() / 100.0);
 	}
 }
 
-void saxpy(float a, float x[], float y[], float z[], unsigned int size) {
-	unsigned int i;
+void saxpy(float a, float x[], float y[], float z[], size_t size) {
+	size_t i;
 	for (i = 0; i < size; i++) {
 		z[i] = a * x[i] + y[i];
 	}
 }
 
-void print_vec(float vec[], unsigned int size) {
-	unsigned int i;
+void print_vec(float vec[], size_t size) {
+	size_t i;
 	if (size > 10)
 		size = 10;
-	printf("first %d values\n", size);
+	printf("first %lld values\n", size);
 	for (i = 0; i < size; i++) {
 		printf("%.2f ", vec[i]);
 	}
@@ -38,16 +38,19 @@ int main() {
 	srand(time(NULL));
 
 	// declare max size for all vectors
-	unsigned int currSize = size2;
+	size_t currSize = size2;
 	float *x = (float*)malloc(sizeof(float) * currSize);
 	float *y = (float*)malloc(sizeof(float) * currSize);
 	float *z = (float*)malloc(sizeof(float) * currSize);
-	float a = 1.5;
+	float *zASM = (float*)malloc(sizeof(float) * currSize);
+	float a = 1;
 	fill_vector(x, currSize);
 	fill_vector(y, currSize);
+	/*print_vec(x, currSize);
+	print_vec(y, currSize);*/
 	double timesC = 0;
 	double timesASM = 0;
-	unsigned int i;
+	size_t i;
 	/*for (i = 0; i < 30; i++) {
 		clock_t start = clock();
 		saxpy(a, x, y, z, currSize);
@@ -62,11 +65,11 @@ int main() {
 
 	for (i = 0; i < 30; i++) {
 		clock_t start = clock();
-		saxpy_asm(a, x, y, z, currSize);
+		saxpy_asm(a, x, y, zASM, currSize);
 		clock_t end = clock();
 		timesASM += (double)(end - start) / CLOCKS_PER_SEC;
 		printf("\nz\n");
-		print_vec(z, currSize);
+		print_vec(zASM, currSize);
 	}
 	timesASM /= 30.0;
 	timesASM *= 1000;

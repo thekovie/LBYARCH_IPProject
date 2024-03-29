@@ -43,7 +43,7 @@ int main() {
 	float *y = (float*)malloc(sizeof(float) * currSize);
 	float *z = (float*)malloc(sizeof(float) * currSize);
 	float *zASM = (float*)malloc(sizeof(float) * currSize);
-	float a = 1;
+	float a = 1.5;
 	fill_vector(x, currSize);
 	fill_vector(y, currSize);
 	/*print_vec(x, currSize);
@@ -51,26 +51,26 @@ int main() {
 	double timesC = 0;
 	double timesASM = 0;
 	size_t i;
-	/*for (i = 0; i < 30; i++) {
+	for (i = 0; i < 30; i++) {
 		clock_t start = clock();
 		saxpy(a, x, y, z, currSize);
 		clock_t end = clock();
 		timesC += (double)(end - start) / CLOCKS_PER_SEC;
-		printf("\nz\n");
-		print_vec(z, currSize);
+		//printf("\nz\n");
 	}
+	print_vec(z, currSize);
 	timesC /= 30.0;
 	timesC *= 1000;
-	printf("average time for C: %fms", timesC);*/
+	printf("average time for C: %fms", timesC);
 
 	for (i = 0; i < 30; i++) {
 		clock_t start = clock();
 		saxpy_asm(a, x, y, zASM, currSize);
 		clock_t end = clock();
 		timesASM += (double)(end - start) / CLOCKS_PER_SEC;
-		printf("\nz\n");
-		print_vec(zASM, currSize);
+		//printf("\nz\n");
 	}
+		print_vec(zASM, currSize);
 	timesASM /= 30.0;
 	timesASM *= 1000;
 	printf("average time for ASM: %fms", timesASM);

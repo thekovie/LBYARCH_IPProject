@@ -61,7 +61,7 @@ int main() {
 	print_vec(z, currSize);
 	timesC /= 30.0;
 	timesC *= 1000;
-	printf("average time for C: %fms", timesC);
+	printf("average time for C: %fms\n", timesC);
 
 	for (i = 0; i < 30; i++) {
 		clock_t start = clock();

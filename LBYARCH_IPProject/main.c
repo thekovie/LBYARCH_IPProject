@@ -5,7 +5,7 @@
 
 #define size1 1 << 20
 #define size2 1 << 24
-#define size3 1 << 30
+#define size3 1 << 29
 
 extern void saxpy_asm(float a, float *x, float *y, float *z, size_t size);
 
@@ -38,7 +38,7 @@ int main() {
 	srand(time(NULL));
 
 	// declare max size for all vectors
-	size_t currSize = size2;
+	size_t currSize = size3;
 	float *x = (float*)malloc(sizeof(float) * currSize);
 	float *y = (float*)malloc(sizeof(float) * currSize);
 	float *z = (float*)malloc(sizeof(float) * currSize);

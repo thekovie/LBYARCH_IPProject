@@ -21,7 +21,7 @@ The user inputs the size of the vector based on the options given below:
 
 
 # Output
-The program outputs $X$, $Y$, and $Z$ for C and Assembly language. It also shows the average time to perform the calculation for both languages.
+The program outputs $X$, $Y$, and $Z$ for C and Assembly language. It also shows the average time to perform the calculation for both languages and a sanity check to see if the results from both languages are the same.
 
 ![image](https://github.com/thekovie/LBYARCH_IPProject/assets/40118781/d39b03d9-8d53-4b12-ae20-5c72c480712d)
 

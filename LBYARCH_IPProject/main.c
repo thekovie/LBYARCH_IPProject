@@ -75,6 +75,12 @@ int main() {
 	printf("Please input scalar variable A: ");
 	scanf_s("%f", &a);
 
+	#ifdef _DEBUG
+		printf("\n<The program is in debug mode>\n");
+	#else
+		printf("\n<The program is in release mode>\n");
+	#endif
+
 	float *x = (float*)malloc(sizeof(float) * currSize);
 	float *y = (float*)malloc(sizeof(float) * currSize);
 	float *z = (float*)malloc(sizeof(float) * currSize);

@@ -27,7 +27,7 @@ The program outputs $X$, $Y$, and $Z$ for C and Assembly language. It also shows
 
 
 # Test Cases
-We will now show you the test cases we conducted. We conducted the tests for $2^{20}$, $2^{24}$, and $2^{29}$, but we cannot make one for $2^{30}$ because the test cannot be conducted with our local machines.
+We will now show you the test cases we conducted. We conducted the tests for $2^{20}$, $2^{24}$, and $2^{29}$. We cannot make one for $2^{30}$ because the test cannot be conducted with our local machines.
 
 
 ## Test Cases for $2^{20}$ 
@@ -71,8 +71,9 @@ We will now show you the test cases we conducted. We conducted the tests for $2^
 ![Screenshot 2024-04-01 152323](https://github.com/thekovie/LBYARCH_IPProject/assets/40118781/380d4df3-61bd-40bd-a4af-944fc2112d7a)
 
 # Analysis
+With the program running in debug mode, the notion that Assembly is faster than C is greatly noticed, especially on the larger vector sizes like $2^{29}$, with a difference of around 360ms. However, when the program is run in release mode, C suddenly becomes the faster program to finish. This is due to the multiple optimizations the C compiler has undergone over the years.
 
-
+Having stark differences in speed for both debug and release modes for C has brought to us the capabilities of C that can be compared to Assembly, one of the lowest-level languages. It breaks the notion that Assembly runs faster than C in release mode.
 
 # Authors
 This project is developed by:

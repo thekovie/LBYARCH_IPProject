@@ -110,6 +110,10 @@ int main() {
 	timesASM /= 30.0;
 	timesASM *= 1000;
 
+	printf("\nx\n");
+	print_vec(x, currSize);
+	printf("\ny\n");
+	print_vec(y, currSize);
 	printf("\nz\n");
 	print_vec(z, currSize);
 	printf("\nzASM\n");

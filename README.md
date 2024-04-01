@@ -74,7 +74,10 @@ We will now show you the test cases we conducted. We conducted the tests for $2^
 
 
 
-
+# Authors
+This project is developed by:
+- Martinez, Jose Raphael
+- Niño, John Kovie
 
 
 
